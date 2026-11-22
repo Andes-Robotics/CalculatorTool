@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Selector de correas de transmisión</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="source/style.css">
+</head>
+<body>
+<main>
+    <h1>¿Qué correa tengo que comprar?</h1>
+    <p class="lead">Ingresá la relación de transmisión, la longitud de la correa y la distancia entre ejes. El sitio calcula los diámetros de las poleas y te sugiere qué tipo de correa conviene.</p>
+
+    <div class="stage">
+        <svg id="draw" viewBox="0 0 600 220" role="img" aria-label="Esquema de las dos poleas y la correa"></svg>
+        <p id="drawcap">Completá los datos para ver el esquema.</p>
+    </div>
+
+    <form id="f" autocomplete="off">
+        <label>Relación de transmisión (i = D / d)
+            <input id="ratio" type="number" min="1" step="0.01" placeholder="ej. 2.5" inputmode="decimal">
+            <small>Polea mayor ÷ polea menor (≥ 1)</small></label>
+        <label>Longitud de la correa (mm)
+            <input id="len" type="number" min="1" step="1" placeholder="ej. 1200" inputmode="decimal">
+            <small>Longitud primitiva</small></label>
+        <label>Distancia entre ejes (mm)
+            <input id="dist" type="number" min="1" step="1" placeholder="ej. 400" inputmode="decimal">
+            <small>De centro a centro</small></label>
+        <label>Tipo de correa
+            <select id="type"></select>
+            <small>Elegí uno para verificarlo, o dejá «Cualquiera»</small></label>
+    </form>
+
+    <div id="out"></div>
+
+    <footer>Cálculo con la fórmula geométrica de correa abierta: L = 2C + π(D+d)/2 + (D−d)²/(4C). Los límites por perfil son valores típicos de catálogo; antes de comprar verificá potencia, velocidad y largos estándar con el fabricante.</footer>
+</main>
+
+<script src="main.js"></script>
+</body>
+</html>
